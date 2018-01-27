@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import routes from './routes.js';
+import { Link } from 'react-router-dom';
+import './reset.css';
 import './App.css';
+import Header from './Components/Header/Header'
+
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+        <Header/>
+        <div className="linkHolder">
+          <Link className='links' to='/Shelf/A'><div>Shelf A</div></Link>
+          <Link className='links' to='/Shelf/B'><div>Shelf B</div></Link>
+          <Link className='links' to='/Shelf/C'><div>Shelf C</div></Link>
+          <Link className='links' to='/Shelf/D'><div>Shelf D</div></Link>
+        </div>
+        {routes}
       </div>
     );
   }
