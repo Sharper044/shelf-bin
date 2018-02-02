@@ -15,7 +15,6 @@ class BinInvEdit extends Component{
         }
 
         this.handleChange=this.handleChange.bind(this);
-        this.componentDidMount=this.componentDidMount.bind(this);
         this.deleteItem=this.deleteItem.bind(this);
         this.updateItem=this.updateItem.bind(this);
     }
@@ -29,8 +28,8 @@ class BinInvEdit extends Component{
     }
 
     deleteItem(){
-        axios.delete(`/api/bin/${this.params.id}${this.params.num}`).then(() => {
-            this.context.history.push(`/Shelf/${this.params.id}/BinAdd/${this.params.num}`);
+        axios.delete(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`).then(() => {
+            window.location.replace(`http://localhost:3000/#/Shelf/${this.props.match.params.id}/BinAdd/${this.props.match.params.num}`);
         });
     }
 
@@ -39,22 +38,24 @@ class BinInvEdit extends Component{
             name: this.state.workingName,
             price: this.state.workingPrice
         };
-        axios.put(`/api/bin/${this.params.id}${this.params.num}`,body).then(res =>{
+        axios.put(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`,body).then(res =>{
+            let data = res.data[0];
             this.setState({
-                orgBinObj: res.data,
+                orgBinObj: data,
                 canEdit: false,
-                workingName: res.data.name,
-                workingPrice: res.data.price
+                workingName: data.name,
+                workingPrice: data.price
             });
         })
     }
 
     componentDidMount(){
-        axios.get(`/api/bin/${this.params.id}${this.params.num}`).then(res => {
+        axios.get(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`).then(res => {
+            let data = res.data[0];
             this.setState({ 
-                orgBinObj: res.data,
-                workingName: res.data.name,
-                workingPrice: res.data.price
+                orgBinObj: data,
+                workingName: data.name,
+                workingPrice: data.price
             });
         });
     }
@@ -63,16 +64,15 @@ class BinInvEdit extends Component{
         return(
             <div>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-                <Header location='fullBin' shelfID={this.params.id} binID={this.params.num}/>
-
+                <Header location='fullBin' shelfID={this.props.match.params.id} binID={this.props.match.params.num}/>
                 <div>
                     <label htmlFor="name">Name</label>
-                    <input id="name" type="text" value={this.state.workingName} onChange={this.handleChange('name', this.target.value)}/>
-                    <label htmlFor="price">Name</label>
-                    <input id="price" type="text" value={this.state.price} placeholder="$0.00" onChange={this.handleChange('price', this.target.value)}/>
+                    <input id="name" type="text" value={this.state.workingName} onChange={(e) => this.handleChange('name', e.target.value)}/>
+                    <label htmlFor="price">Price</label>
+                    <input id="price" type="text" value={this.state.workingPrice} placeholder="$0.00" onChange={(e) => this.handleChange('price', e.target.value)}/>
                     <button>EDIT</button>
-                    <button onClick={this.updateItem}>SAVE</button>
-                    <button onClick={this.deleteItem}>DELETE</button>
+                    <button onClick={() => this.updateItem()}>SAVE</button>
+                    <button onClick={() => this.deleteItem()}>DELETE</button>
                 </div>
 
             </div>

@@ -29,8 +29,8 @@ class BinAdd extends Component{
             name: this.state.workingName,
             price: this.state.workingPrice
         };
-        axios.post(`/api/bin/${this.params.id}${this.params.num}`, body).then(() => {
-            this.context.history.push(`/Shelf/${this.params.id}/BinView/${this.params.num}`);
+        axios.post(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`, body).then(() => {
+            window.location.replace(`http://localhost:3000/#/Shelf/${this.props.match.params.id}/BinView/${this.props.match.params.num}`);
         });
     }
 
@@ -38,14 +38,14 @@ class BinAdd extends Component{
         return(
             <div>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-                <Header location='emptyBin' shelfID={this.params.id} binID={this.params.num}/>
+                <Header location='emptyBin' shelfID={this.props.match.params.id} binID={this.props.match.params.num}/>
 
                 <div>
                     <label htmlFor="name">Name</label>
-                    <input id="name" type="text" onChange={this.handleChange('name', this.target.value)}/>
+                    <input id="name" type="text" onChange={(e) => this.handleChange('name', e.target.value)}/>
                     <label htmlFor="price">Name</label>
-                    <input id="price" type="text" placeholder="$0.00" onChange={this.handleChange('price', this.target.value)}/>
-                    <button onClick={this.saveItem}>+ Add Inventory</button>
+                    <input id="price" type="text" placeholder="$0.00" onChange={(e) => this.handleChange('price', e.target.value)}/>
+                    <button onClick={() => this.saveItem()}>+ Add Inventory</button>
                 </div>
 
             </div>
