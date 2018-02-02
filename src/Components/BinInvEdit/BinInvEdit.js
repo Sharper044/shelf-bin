@@ -11,7 +11,7 @@ class BinInvEdit extends Component{
             workingName: '',
             workingPrice: '',
             orgBinObj: {},
-            canEdit: false
+            disabled: true
         }
 
         this.handleChange=this.handleChange.bind(this);
@@ -42,7 +42,7 @@ class BinInvEdit extends Component{
             let data = res.data[0];
             this.setState({
                 orgBinObj: data,
-                canEdit: false,
+                disabled: true,
                 workingName: data.name,
                 workingPrice: data.price
             });
@@ -61,18 +61,20 @@ class BinInvEdit extends Component{
     }
 
     render(){
+        var editSave = (this.state.disabled)?(<button className='grey' onClick={() => this.setState({disabled: false})}>EDIT</button>):(<button className='save' onClick={() => this.updateItem()}>SAVE</button>);
         return(
             <div>
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
                 <Header location='fullBin' shelfID={this.props.match.params.id} binID={this.props.match.params.num}/>
-                <div>
+                <div className="maindiv">
                     <label htmlFor="name">Name</label>
-                    <input id="name" type="text" value={this.state.workingName} onChange={(e) => this.handleChange('name', e.target.value)}/>
+                    <input id="name" type="text" value={this.state.workingName} disabled={this.state.disabled} placeholder="Name" onChange={(e) => this.handleChange('name', e.target.value)}/>
                     <label htmlFor="price">Price</label>
-                    <input id="price" type="text" value={this.state.workingPrice} placeholder="$0.00" onChange={(e) => this.handleChange('price', e.target.value)}/>
-                    <button>EDIT</button>
-                    <button onClick={() => this.updateItem()}>SAVE</button>
-                    <button onClick={() => this.deleteItem()}>DELETE</button>
+                    <input id="price" type="text" value={this.state.workingPrice} disabled={this.state.disabled} placeholder="$0.00" onChange={(e) => this.handleChange('price', e.target.value)}/>
+                    <div className="buttonHolder">
+                        {editSave}
+                        <button className='grey' onClick={() => this.deleteItem()}>DELETE</button>
+                    </div>
                 </div>
 
             </div>

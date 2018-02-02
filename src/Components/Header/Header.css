@@ -1,3 +1,104 @@
 .logo {
-  background-color: black;
+  background-color: #AB2A19;
+  height: 50px;
+  width: 50px;
+  margin: 0 20px ;
+}
+
+.headerHolder{
+  width: auto;
+  height: 10vh;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+h2 {
+  color: white;
+  font-size: 5vh;
+}
+
+.dark{
+  background-color: #AB2A19
+}
+
+.home{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.mid{
+  background-color: #d34735
+}
+
+.shelfD{
+  width: 10vw;
+  height: 10vh;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.shelfM {
+  color: white;
+  font-size: 5vh;
+  font-weight: 700;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.link {
+  text-decoration:none;
+}
+
+.binM {
+  color: white;
+  font-size: 5vh;
+  font-weight: 700;
+  height: 10vh;
+  width: 20vw;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.binL {
+  font-size: 5vh;
+  font-weight: 700;
+  height: 10vh;
+  width: 70vw;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.light {
+  background-color: #ed6b5a;
+  color: White;
+}
+
+.Xlight {
+  background-color: #FFB8AF;
+  color: Black;
 }

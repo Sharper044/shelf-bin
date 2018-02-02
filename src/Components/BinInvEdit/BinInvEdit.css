@@ -1,0 +1,19 @@
+.buttonHolder{
+  width: 100%;
+  height: 15vh;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.grey{
+  width: 40%;
+  border-radius: 10px;
+  background-color: #d8d8d8;
+}
+
+.save{
+  width: 40%;
+}

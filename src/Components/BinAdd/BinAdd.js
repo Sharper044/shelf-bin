@@ -37,13 +37,13 @@ class BinAdd extends Component{
     render(){
         return(
             <div>
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
                 <Header location='emptyBin' shelfID={this.props.match.params.id} binID={this.props.match.params.num}/>
 
-                <div>
+                <div className="maindiv">
                     <label htmlFor="name">Name</label>
                     <input id="name" type="text" onChange={(e) => this.handleChange('name', e.target.value)}/>
-                    <label htmlFor="price">Name</label>
+                    <label htmlFor="price">Price</label>
                     <input id="price" type="text" placeholder="$0.00" onChange={(e) => this.handleChange('price', e.target.value)}/>
                     <button onClick={() => this.saveItem()}>+ Add Inventory</button>
                 </div>

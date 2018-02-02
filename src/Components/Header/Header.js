@@ -9,7 +9,7 @@ var Header = (props) => {
         case 'binList':
             return (
                 <div className="headerHolder">
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
                     <Link to='/'><div className="shelfD dark">
                         <img className='logo' src={require("../../Asets/logo.png")} alt="Shelfie company logo"/>
                     </div></Link>
@@ -22,12 +22,12 @@ var Header = (props) => {
         case 'fullBin':
             return (
                 <div className="headerHolder">
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
                     <Link to='/'><div className="shelfD dark">
                         <img className='logo' src={require("../../Asets/logo.png")} alt="Shelfie company logo"/>
                     </div></Link>
-                    <Link to={`/Shelf/${props.shelfID}`}><div className="binM mid">
-                        Shelf {props.shelfID}
+                    <Link className="link" to={`/Shelf/${props.shelfID}`}><div className="binM mid">
+                        <h2><b>Shelf {props.shelfID}</b></h2>
                     </div></Link>
                     <div className="binL light">
                         Bin {props.binID}
@@ -38,11 +38,11 @@ var Header = (props) => {
         case 'emptyBin':
             return (
                 <div className="headerHolder">
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
-                    <Link to='/'><div className="shelfD dark">
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
+                    <Link to='/' ><div className="shelfD dark">
                         <img className='logo' src={require("../../Asets/logo.png")} alt="Shelfie company logo"/>
                     </div></Link>
-                    <Link to={`/Shelf/${props.shelfID}`}><div className="binM mid">
+                    <Link className="link" to={`/Shelf/${props.shelfID}`}><div className="binM mid">
                         Shelf {props.shelfID}
                     </div></Link>
                     <div className="binL Xlight">
@@ -54,10 +54,10 @@ var Header = (props) => {
         default:
             return (
                 <div className="headerHolder">
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"/>
                     <div className="home dark">
                         <img className='logo' src={require("../../Asets/logo.png")} alt="Shelfie company logo"/>
-                        SHELFIE
+                        <h2>SHELFIE</h2>
                     </div>
                 </div>
             );

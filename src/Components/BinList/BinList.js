@@ -22,7 +22,7 @@ class BinList extends Component{
     }
 
     render(){
-        let bins = this.state.shelfData.map((e, i) => (e.name === null)?(<Link to={`/Shelf/${this.props.match.params.id}/BinAdd/${i + 1}`} key={i}><Bin status='empty'/></Link>):(<Link to={`/Shelf/${this.props.match.params.id}/BinView/${i + 1}`}  key={i}><Bin status='full' binID={i + 1}/></Link>));
+        let bins = this.state.shelfData.map((e, i) => (e.name === null)?(<Link className="link" to={`/Shelf/${this.props.match.params.id}/BinAdd/${i + 1}`} key={i}><Bin status='empty'/></Link>):(<Link className="link" to={`/Shelf/${this.props.match.params.id}/BinView/${i + 1}`}  key={i}><Bin status='full' binID={i + 1}/></Link>));
         return(
             <div className="binList">
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>

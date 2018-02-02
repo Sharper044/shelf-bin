@@ -1,0 +1,25 @@
+.linkHolder {
+  width: 50%;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.links {
+  background-color: #D34735;
+  width: auto;
+  height: 10vh;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: left;
+  padding: 2.5vh 20%;
+}
+
+h2 {
+  color: white;
+  font-size: 4.5vh;
+  
+}
+
+.link {
+  text-decoration:none;
+}

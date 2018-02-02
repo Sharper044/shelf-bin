@@ -1,0 +1,9 @@
+.linkHolder{
+  width: 50%;
+  height: 80vh;
+  margin: 20px auto;
+}
+
+.link{
+  text-decoration:none;
+}
