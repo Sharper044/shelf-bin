@@ -29,7 +29,7 @@ class BinInvEdit extends Component{
 
     deleteItem(){
         axios.delete(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`).then(() => {
-            window.location.replace(`http://localhost:3000/#/Shelf/${this.props.match.params.id}/BinAdd/${this.props.match.params.num}`);
+            window.location.replace(`http://localhost:3030/#/Shelf/${this.props.match.params.id}/BinAdd/${this.props.match.params.num}`);
         });
     }
 

@@ -30,7 +30,7 @@ class BinAdd extends Component{
             price: this.state.workingPrice
         };
         axios.post(`/api/bin/${this.props.match.params.id}${this.props.match.params.num}`, body).then(() => {
-            window.location.replace(`http://localhost:3000/#/Shelf/${this.props.match.params.id}/BinView/${this.props.match.params.num}`);
+            window.location.replace(`http://localhost:3030/#/Shelf/${this.props.match.params.id}/BinView/${this.props.match.params.num}`);
         });
     }
 
